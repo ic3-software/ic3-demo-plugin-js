@@ -1,0 +1,41 @@
+# -----------------------------------------------------------------------------
+# localization tag, language (, language)+
+# -----------------------------------------------------------------------------
+
+tag,en
+
+# -----------------------------------------------------------------------------
+# Groups (groupId used in widget template definition)
+# -----------------------------------------------------------------------------
+
+MyPluginJS.$myCharts, My Charts
+
+# -----------------------------------------------------------------------------
+# Widget templates caption/description
+# -----------------------------------------------------------------------------
+
+MyPluginJS.SimpleDropdown.$caption, Simple Dropdown
+MyPluginJS.SimpleDropdown.$caption.description, A simple dropdown filter that...
+
+MyPluginJS.Table.$caption, Table
+MyPluginJS.Table.$caption.description, A table that...
+
+# -----------------------------------------------------------------------------
+# A common field can be defined as:
+#
+#       MyPluginJS.fieldName, ...
+#
+# For a specific field in a given widget template:
+#
+#       MyPluginJS.templateId.fieldName, ...
+#
+# -----------------------------------------------------------------------------
+
+MyPluginJS.SimpleDropdown.items, Items
+MyPluginJS.SimpleDropdown.items.description, The table column containing the items to choose from.
+
+MyPluginJS.SimpleDropdown.placeholder, Placeholder
+MyPluginJS.SimpleDropdown.placeholder.description, The text requesting the user to enter a value.
+
+MyPluginJS.SimpleDropdown.Publish-SimpleDropdownChangeValue, "Change Value",
+MyPluginJS.SimpleDropdown.Publish-SimpleDropdownChangeValue.description, "This event is fired when the user change the dropdown value.",
