@@ -1,7 +1,7 @@
 import PluginLocalization from "./PluginLocalization.csv";
 import {ApiUtils, ILocalizationManager, IWidgetManager} from "@ic3/reporting-api";
-import {TableDefinition} from "./widget/Table";
 import {SimpleDropdownDefinition} from "./widget/SimpleDropdown";
+import {SimpleTableDefinition} from "./widget/SimpleTable";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -31,7 +31,7 @@ const PluginDefinition = ApiUtils.makePlugin({
         console.log("[MyPluginJS] registerWidgets")
 
         manager.registerWidget(SimpleDropdownDefinition);
-        manager.registerWidget(TableDefinition);
+        manager.registerWidget(SimpleTableDefinition);
 
     },
 

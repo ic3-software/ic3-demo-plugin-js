@@ -1,14 +1,18 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
-A working example of an icCube Dashboard plugin creating new widgets using plain Javascript/Typescript code (i.e., no
+A working example of an icCube Dashboards plugin creating new widgets using plain Javascript/Typescript code (i.e., no
 dependency on React).
 
 This plugin is creating the following widgets:
 
 - simple dropdown: the user can select an item from a dropdown list. On top of common widget setup, this widget is
-  demonstrating how to **fire an event**.
+  demonstrating how
+  to [fire an event](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
 
-- table: on top of common widget setup, this widget is demonstrating how to handle **selection**.
+- simple table: on top of common widget setup, this widget is demonstrating both how
+  to [fire an event](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Events.md)
+  and how to handle
+  the [selection](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md).
 
 ### Getting Started
 
@@ -25,7 +29,7 @@ The `package.json` file is containing common scripts:
     zip     : zip the /dist directory to deploy into an icCube server
     clean   : delete /dist /kit directories.
 
-A JetBrains Intellij project is available for a quick start.
+A JetBrains IntelliJ project is available for a quick start.
 
 ### MyPluginJS Renaming
 

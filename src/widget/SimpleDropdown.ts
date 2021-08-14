@@ -89,6 +89,7 @@ class SimpleDropdown {
 
     dispose() {
         this.container.firstChild?.remove();
+        delete this.el;
     }
 
 }
@@ -111,6 +112,12 @@ interface SimpleDropdownOptions extends FormFieldObject {
 function simpleDropdownOptionsMeta(): FormFields<SimpleDropdownOptions> {
     return {
         "placeholder": {
+            /**
+             * Allows for visually grouping field in the editor.
+             *
+             * @see PluginLocalization.csv
+             */
+            group: "options",
             fieldType: "string",
             defaultValue: "please select a value",
         }
@@ -119,6 +126,12 @@ function simpleDropdownOptionsMeta(): FormFields<SimpleDropdownOptions> {
 
 function simpleDropdownDataMappingMeta(): IWidgetTemplateDataMappingDef[] {
     return [{
+        /**
+         * Allows for visually grouping field in the editor.
+         *
+         * @see PluginLocalization.csv
+         */
+        mappingGroup: "options",
         mappingName: "items",
         allowedTypes: [TidyColumnsType.CHARACTER],
         fallback: true,
@@ -155,7 +168,7 @@ export const SimpleDropdownDefinition: IPublicWidgetJsTemplateDefinition<SimpleD
          *
          * @see PluginLocalization.csv
          */
-        publish: ['SimpleDropdownChangeValue'],
+        publish: ["SimpleDropdownChangeValue"],
     },
 
     jsCode: (context, container) => {

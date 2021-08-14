@@ -38,6 +38,10 @@ module.exports = {
                     ]
                 },
                 {
+                    test: /\.css$/,
+                    use: ["style-loader", "css-loader"],
+                },
+                {
                     test: /PluginLocalization\.csv$/,
                     use: require.resolve("raw-loader"),
                 },
