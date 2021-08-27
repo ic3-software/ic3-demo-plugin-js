@@ -8,7 +8,10 @@ module.exports = {
     entry: "./src/index.ts",
 
     output: {
-        chunkFilename: '[name]-chunk.js?t=' + new Date().getTime(),
+        /**
+         * The icCube server is processing those links to ensure cache busting w/ tenant URLs.
+         */
+        chunkFilename: '[name]-chunk.js?t=' + new Date().getTime() /* cache busting */,
     },
 
     resolve: {
@@ -70,6 +73,7 @@ module.exports = {
 
         new HtmlWebpackPlugin({
             template: "./public/index.html",
+            hash: true,
         }),
 
     ],

@@ -1,12 +1,12 @@
 {
   "name": "@ic3/demo-plugin-js",
-  "version": "8.0.0-alpha.11",
+  "version": "8.0.0-alpha.12",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/iccube-software/ic3-demo-plugin-js",
   "repository": "https://github.com/iccube-software/ic3-demo-plugin-js",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "8.0.0-alpha.11",
+    "@ic3/reporting-api": "8.0.0-alpha.12",
     "datatables.net": "1.10.25",
     "jquery": "3.6.0",
     "lodash": "4.17.21"
@@ -15,7 +15,7 @@
     "@babel/core": "7.15.0",
     "@babel/preset-env": "7.15.0",
     "@babel/preset-react": "7.14.5",
-    "@material-ui/core": "5.0.0-beta.3",
+    "@material-ui/core": "5.0.0-beta.4",
     "@types/datatables.net": "1.10.20",
     "@types/jquery": "3.5.6",
     "@types/lodash": "4.14.172",
@@ -38,7 +38,7 @@
     "ts-loader": "9.2.5",
     "typescript": "4.3.5",
     "webpack": "5.50.0",
-    "webpack-cli": "4.7.2",
+    "webpack-cli": "4.8.0",
     "webpack-dev-server": "3.11.2",
     "webpack-merge": "5.8.0"
   },
