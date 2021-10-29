@@ -1,7 +1,8 @@
 import PluginLocalization from "./PluginLocalization.csv";
-import {ApiUtils, ILocalizationManager, IWidgetManager} from "@ic3/reporting-api";
+import {ApiUtils, ILocalizationManager, ITidyTableTransformationManager, IWidgetManager} from "@ic3/reporting-api";
 import {SimpleDropdownDefinition} from "./widget/SimpleDropdown";
 import {SimpleTableDefinition} from "./widget/SimpleTable";
+import {TransformationCustom} from "./transformations/TransformationCustom";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -34,6 +35,10 @@ const PluginDefinition = ApiUtils.makePlugin({
         manager.registerWidget(SimpleTableDefinition);
 
     },
+
+    registerTidyTableTransformations(manager: ITidyTableTransformationManager) {
+        manager.registerTransformation(TransformationCustom);
+    }
 
 });
 

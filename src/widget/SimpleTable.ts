@@ -23,7 +23,7 @@ class SimpleTable {
 
     private options?: SimpleTableOptions;
 
-    private $table?: DataTables.Api;
+    private $table?: any; // DataTables.Api;
 
     constructor(context: IWidgetPublicContext, container: HTMLDivElement) {
         this.container = container;
@@ -80,7 +80,8 @@ class SimpleTable {
                 paging: false,
                 ordering: options.ordering,
                 order: [],
-            })
+
+            });
 
             // The column used for defining the content of the event (SimpleTableClickRow).
             // In the query, the first axis after the measures.
@@ -167,6 +168,30 @@ export const SimpleTableDefinition: IPublicWidgetJsTemplateDefinition<SimpleTabl
     image: "",
 
     withoutDrilldown: true,
+
+    /**
+     * Graphical MDX query builder meta information.
+     */
+    mdxBuilderSettings: {
+        mdxAxis: [
+            {
+                name: "Measures",
+                isOptional: true,
+                disableNonEmpty: true,
+                showOrder: 3,
+            },
+            {
+                name: "Columns",
+                multipleHierarchy: true,
+                showOrder: 1,
+            },
+            {
+                name: "Rows",
+                multipleHierarchy: true,
+                showOrder: 2,
+            }
+        ]
+    },
 
     chartOptionsMeta: simpleTableOptionsMeta(),
 

@@ -49,6 +49,13 @@ module.exports = {
                     use: require.resolve("raw-loader"),
                 },
                 {
+                    test: /\.(png)$/i,
+                    type: "asset/resource",
+                    generator: {
+                        filename: "static/media/[name].[hash:8].[ext]",
+                    }
+                },
+                {
                     loader: require.resolve("file-loader"),
                     exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
                     options: {

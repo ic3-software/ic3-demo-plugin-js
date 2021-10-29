@@ -4,9 +4,9 @@ import {
     FormFields,
     IPublicWidgetJsTemplateDefinition,
     ITidyTable,
-    IWidgetTemplateDataMappingDef,
     IWidgetTemplateTidyData,
     TidyColumnsType,
+    TidyTableColumnSelector,
     WidgetTemplateDefinitionType
 } from "@ic3/reporting-api";
 
@@ -100,6 +100,11 @@ class SimpleDropdown {
 interface SimpleDropdownOptions extends FormFieldObject {
 
     /**
+     * The column of the tidy table containing the filter items.
+     */
+    items: TidyTableColumnSelector;
+
+    /**
      * The meta information is defining a default value to ensure there is always
      * a value when rendering the widget.
      *
@@ -111,6 +116,25 @@ interface SimpleDropdownOptions extends FormFieldObject {
 
 function simpleDropdownOptionsMeta(): FormFields<SimpleDropdownOptions> {
     return {
+        "items": {
+            /**
+             * Allows for visually grouping field in the editor.
+             *
+             * @see PluginLocalization.csv
+             */
+            group: "options",
+            fieldType: "columnsChooser",
+            editorConf: {
+
+                /**
+                 * The column of the tidy table containing the filter items defaulted to the first
+                 * CHARACTER column.
+                 */
+                allowedTypes: [TidyColumnsType.CHARACTER],
+                fallback: true,
+            },
+            defaultValue: "" as any,
+        },
         "placeholder": {
             /**
              * Allows for visually grouping field in the editor.
@@ -122,20 +146,6 @@ function simpleDropdownOptionsMeta(): FormFields<SimpleDropdownOptions> {
             defaultValue: "please select a value",
         }
     }
-}
-
-function simpleDropdownDataMappingMeta(): IWidgetTemplateDataMappingDef[] {
-    return [{
-        /**
-         * Allows for visually grouping field in the editor.
-         *
-         * @see PluginLocalization.csv
-         */
-        mappingGroup: "options",
-        mappingName: "items",
-        allowedTypes: [TidyColumnsType.CHARACTER],
-        fallback: true,
-    }]
 }
 
 export const SimpleDropdownDefinition: IPublicWidgetJsTemplateDefinition<SimpleDropdownOptions> = {
@@ -159,7 +169,19 @@ export const SimpleDropdownDefinition: IPublicWidgetJsTemplateDefinition<SimpleD
     withoutDrilldown: true,
     withoutUserMenu: true,
 
-    dataMappingMeta: simpleDropdownDataMappingMeta(),
+    /**
+     * Graphical MDX query builder meta information.
+     */
+    mdxBuilderSettings: {
+        mdxIsForFilter: true,
+        mdxAxis: [
+            {
+                name: "items",
+                disableNonEmpty: true
+            }
+        ]
+    },
+
     chartOptionsMeta: simpleDropdownOptionsMeta(),
 
     eventRoles: {

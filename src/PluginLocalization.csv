@@ -20,6 +20,8 @@ MyPluginJS.SimpleDropdown.$caption.description, A dropdown filter that...
 MyPluginJS.SimpleTable.$caption, Simple Table
 MyPluginJS.SimpleTable.$caption.description, A table widget that...
 
+MyPluginJS.SimpleTable.Measures.dropZone, "Additional measures"
+
 # -----------------------------------------------------------------------------
 # A common field can be defined as:
 #
@@ -48,3 +50,18 @@ MyPluginJS.SimpleTable.ordering.description, Allows for ordering the table.
 
 MyPluginJS.SimpleTable.Publish-SimpleTableClickRow, Click Row,
 MyPluginJS.SimpleTable.Publish-SimpleTableClickRow.description, "This event is fired when the user is clicking on the row. In this example, the content of the first column is used as event value.",
+
+# -----------------------------------------------------------------------------
+# Transformations options, name & description
+# -----------------------------------------------------------------------------
+
+MyPluginJS.$transformation.MyPluginJS, MyPluginJS transformations
+MyPluginJS.$transformation.MyPluginJS.description, Transformations from the MyPluginJS plugin
+
+MyPluginJS.TransformationCustom.$caption, Custom transformation
+MyPluginJS.TransformationCustom.$caption.description, Transformation from the MyPluginJS plugin
+MyPluginJS.TransformationCustom.$caption.description.ex, Append {0} to the values in {1}
+MyPluginJS.TransformationCustom.column, Column
+MyPluginJS.TransformationCustom.column.description, Append to this column
+MyPluginJS.TransformationCustom.appendText, Append text
+MyPluginJS.TransformationCustom.appendText.description, Append this text to the column in 'Column'

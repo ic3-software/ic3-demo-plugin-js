@@ -6,13 +6,16 @@ dependency on React).
 This plugin is creating the following widgets:
 
 - simple dropdown: the user can select an item from a dropdown list. On top of common widget setup, this widget is
-  demonstrating how
-  to [fire an event](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
+  demonstrating how to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
 
 - simple table: on top of common widget setup, this widget is demonstrating both how
-  to [fire an event](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Events.md)
+  to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md)
   and how to handle
-  the [selection](https://github.com/iccube-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md).
+  the [selection](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md).
+
+It also creates the following transformation:
+
+- transformation custom: this is an example transformation that appends text to each value of a column.
 
 ### Getting Started
 
@@ -44,17 +47,17 @@ the plugins loaded into an icCube server.
 
 This example starts and shares the module `MyPluginJS` @ `localhost:4000` (see `webpack.dev.js` file).
 
-Refer to this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
 that is explaining how to debug the plugin.
 
 ### Build/Deploy
 
-Refer to this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Deploy.md)
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Deploy.md)
 that is explaining how to deploy the plugin.
 
 ### Documentation
 
-See this [page](https://github.com/iccube-software/ic3-reporting-api/blob/master/doc/plugin/Overview.md)
+See this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Overview.md)
 for a detailed documentation of the dev. kit.
 
 _
