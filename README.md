@@ -43,12 +43,12 @@ Keep that name simple (i.e., ASCII letter without any space, separator, etc...) 
 (once deployed into an icCube server), Webpack module name, localization id, etc... That name must be unique across all
 the plugins loaded into an icCube server.
 
-### Debug
+### Develop
 
 This example starts and shares the module `MyPluginJS` @ `localhost:4000` (see `webpack.dev.js` file).
 
-Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Debug.md)
-that is explaining how to debug the plugin.
+Refer to this [page](https://github.com/ic3-software/ic3-reporting-api/blob/master/doc/plugin/Develop.md)
+that is explaining how to develop the plugin.
 
 ### Build/Deploy
 

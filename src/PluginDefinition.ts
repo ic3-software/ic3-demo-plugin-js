@@ -3,6 +3,8 @@ import {ApiUtils, ILocalizationManager, ITidyTableTransformationManager, IWidget
 import {SimpleDropdownDefinition} from "./widget/SimpleDropdown";
 import {SimpleTableDefinition} from "./widget/SimpleTable";
 import {TransformationCustom} from "./transformations/TransformationCustom";
+import {TemplateWrapperTestJS} from "./widget/WidgetTemplateWrapperJS";
+import {TemplateWrapperTestReact} from "./widget/WidgetTemplateWrapperReact";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -33,6 +35,8 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         manager.registerWidget(SimpleDropdownDefinition);
         manager.registerWidget(SimpleTableDefinition);
+        manager.registerWidget(TemplateWrapperTestJS);
+        manager.registerWidget(TemplateWrapperTestReact);
 
     },
 
