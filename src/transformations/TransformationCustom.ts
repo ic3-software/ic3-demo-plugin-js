@@ -40,7 +40,7 @@ export const TransformationCustom: ITidyTableTransformation<TransformationCustom
 
     apply(context: IPublicContext, table, options: TransformationCustomOptions): void {
 
-        const column = table.getColumnBySelector(options.column)?.[0];
+        const column = table.getColumnsBySelector(options.column)?.[0];
 
         if (column != null) {
             column.apply(value => String(value) + options.appendText, TidyColumnsType.CHARACTER);

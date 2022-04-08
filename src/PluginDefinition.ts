@@ -1,10 +1,19 @@
 import PluginLocalization from "./PluginLocalization.csv";
-import {ApiUtils, ILocalizationManager, ITidyTableTransformationManager, IWidgetManager} from "@ic3/reporting-api";
-import {SimpleDropdownDefinition} from "./widget/SimpleDropdown";
-import {SimpleTableDefinition} from "./widget/SimpleTable";
+import {
+    ApiUtils,
+    FormFieldObject,
+    ILocalizationManager,
+    IPublicWidgetTemplateDefinition,
+    ITidyTableTransformationManager,
+    IWidgetManager,
+    WidgetTemplateDefinitionType,
+    WidgetTemplateIDs
+} from "@ic3/reporting-api";
+import {CustomTableDefinition} from "./widget/CustomTableDefinition";
+import {SimpleDropdownDefinition} from "./widget/SimpleDropdownDefinition";
+import {SimpleTableDefinition} from "./widget/SimpleTableDefinition";
 import {TransformationCustom} from "./transformations/TransformationCustom";
-import {TemplateWrapperTestJS} from "./widget/WidgetTemplateWrapperJS";
-import {TemplateWrapperTestReact} from "./widget/WidgetTemplateWrapperReact";
+import {CustomDonutChartDefinition} from "./widget/CustomDonutChartDefinition";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -35,13 +44,27 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         manager.registerWidget(SimpleDropdownDefinition);
         manager.registerWidget(SimpleTableDefinition);
-        manager.registerWidget(TemplateWrapperTestJS);
-        manager.registerWidget(TemplateWrapperTestReact);
+
+        manager.registerWrappedWidget(CustomTableDefinition);
+        manager.registerWrappedWidget(CustomDonutChartDefinition);
 
     },
 
     registerTidyTableTransformations(manager: ITidyTableTransformationManager) {
+
         manager.registerTransformation(TransformationCustom);
+
+    },
+
+    /**
+     * Keep only our widgets and the available filters.
+     */
+    acceptWidget(id: WidgetTemplateIDs | string, widget: IPublicWidgetTemplateDefinition<FormFieldObject>): boolean {
+
+        return id.startsWith("MyPluginJS")
+            || (widget.type === WidgetTemplateDefinitionType.Filter && id.startsWith("ic3"))
+            ;
+
     }
 
 });

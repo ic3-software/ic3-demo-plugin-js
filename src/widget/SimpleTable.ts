@@ -1,19 +1,17 @@
+import _ from "lodash";
+import $ from "jquery";
 import {
-    FormFieldObject,
-    FormFields,
-    IPublicWidgetJsTemplateDefinition,
+    IPublicJsChartTemplate,
     ITidyTable,
     ITidyTableInteraction,
     IWidgetPublicContext,
-    IWidgetTemplateTidyData,
-    TemplateEventActionNames,
-    WidgetTemplateDefinitionType
+    IWidgetTemplateTidyData
 } from "@ic3/reporting-api";
-import _ from "lodash";
-import $ from "jquery";
+import {SimpleTableOptions} from "./SimpleTableDefinition";
 
 import "datatables.net";
 import "./css/SimpleTable.css"
+
 
 class SimpleTable {
 
@@ -29,7 +27,7 @@ class SimpleTable {
         this.container = container;
     }
 
-    renderJS(data: IWidgetTemplateTidyData, options: any, header: string) {
+    renderJS(data: IWidgetTemplateTidyData, options: SimpleTableOptions, header: string) {
 
         const optionUpdated = !_.isEqual(this.options, options);
         const dataUpdated = !_.isEqual(this.table, data.table);
@@ -133,95 +131,11 @@ class SimpleTable {
 
 }
 
-/**
- * The options (possibly edited and/or from the theme) of this widget.
- */
-interface SimpleTableOptions extends FormFieldObject {
+export default {
 
-    ordering: boolean;
-
-}
-
-function simpleTableOptionsMeta(): FormFields<SimpleTableOptions> {
-    return {
-        "ordering": {
-            fieldType: "boolean",
-            defaultValue: true,
-        }
-    }
-}
-
-export const SimpleTableDefinition: IPublicWidgetJsTemplateDefinition<SimpleTableOptions> = {
-
-    type: WidgetTemplateDefinitionType.Chart,
-
-    /**
-     * @see PluginLocalization.csv
-     */
-    id: "SimpleTable",
-
-    /**
-     * @see PluginLocalization.csv
-     */
-    groupId: "myCharts",
-
-    image: "",
-
-    withoutDrilldown: true,
-
-    /**
-     * Graphical MDX query builder meta information.
-     */
-    mdxBuilderSettings: {
-        mdxAxis: [
-            {
-                name: "Measures",
-                isOptional: true,
-                disableNonEmpty: true,
-                showOrder: 3,
-            },
-            {
-                name: "Columns",
-                multipleHierarchy: true,
-                showOrder: 1,
-            },
-            {
-                name: "Rows",
-                multipleHierarchy: true,
-                showOrder: 2,
-            }
-        ]
-    },
-
-    chartOptionsMeta: simpleTableOptionsMeta(),
-
-    eventRoles: {
-        /**
-         * This widget is publishing an event when the user clicks on a row.
-         *
-         * @see PluginLocalization.csv
-         */
-        publish: ["SimpleTableClickRow"],
-
-        /**
-         * This widget is supporting a selection.
-         */
-        selectionPublish: TemplateEventActionNames.SELECTION,
-        selectionSubscribe: TemplateEventActionNames.SELECTION,
-    },
-
-    selection: {
-
-        /**
-         * All "axis" columns can be part of the selection (see Interactions/Selection/Selection Granularity)
-         * in the table widget editor.
-         */
-        allowedColumns: column => column.getAxisCoordinate() == null || column.getAxisCoordinate()?.axisIdx !== 0
-
-    },
-
-    jsCode: (context, container) => {
+    jsCode: (context: IWidgetPublicContext, container: HTMLDivElement): IPublicJsChartTemplate<SimpleTableOptions> => {
         return new SimpleTable(context, container);
-    },
+    }
 
 }
+

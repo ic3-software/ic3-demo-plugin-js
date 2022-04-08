@@ -1,21 +1,33 @@
 ## icCube Dashboards Plugin (Javascript/Typescript)
 
-A working example of an icCube Dashboards plugin creating new widgets using plain Javascript/Typescript code (i.e., no
-dependency on React).
+A working example of an icCube Dashboards plugin creating new widgets using plain Javascript/Typescript code
+(i.e., no dependency on React).
 
 This plugin is creating the following widgets:
 
-- simple dropdown: the user can select an item from a dropdown list. On top of common widget setup, this widget is
-  demonstrating how to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
+**Simple Dropdown**
 
-- simple table: on top of common widget setup, this widget is demonstrating both how
-  to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md)
-  and how to handle
-  the [selection](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md).
+Create a new filter widget **from scratch**. This widget is demonstrating how to **lazy load** (Webpack code splitting)
+the underlying Javascript library (datatables.net). Users can select an item from a dropdown list. On top of common
+widget setup, this widget is demonstrating how
+to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
 
-It also creates the following transformation:
+**Simple Table**
 
-- transformation custom: this is an example transformation that appends text to each value of a column.
+Create a new table widget **from scratch**. On top of common widget setup, this widget is demonstrating both how to
+[fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md) and how to handle
+the [selection](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md). It also creates
+a **transformation** that is appending some text to each value of a column.
+
+**Custom Table**
+
+Create a new table widget from the **existing icCube table widget**. This widget is demonstrating how to reuse existing
+widgets: hiding/changing existing editor options, adding new editor options.
+
+**Custom Donut Chart**
+
+Create a new chart widget from the **existing icCube Donut chart widget**. This widget is demonstrating how to reuse an
+existing amCharts 4 widget (i.e., the Donut chart).
 
 ### Getting Started
 
