@@ -157,11 +157,7 @@ export const SimpleDropdownDefinition: IPublicWidgetJsTemplateDefinition<SimpleD
      * @see PluginLocalization.csv
      */
     id: "SimpleDropdown",
-
-    /**
-     * @see PluginLocalization.csv
-     */
-    groupId: "myCharts",
+    groupId: "myChartsJS",
 
     image: "",
 

@@ -3,6 +3,10 @@
 A working example of an icCube Dashboards plugin creating new widgets using plain Javascript/Typescript code
 (i.e., no dependency on React).
 
+Note that this plugin is demonstrating how to **filter the list of available widgets**. Check the `acceptWidget`
+method in the `PluginDefinition.ts` file. This method is keeping both the icCube filters and the widgets defined
+in this plugin.
+
 This plugin is creating the following widgets:
 
 **Simple Dropdown**
@@ -28,6 +32,15 @@ widgets: hiding/changing existing editor options, adding new editor options.
 
 Create a new chart widget from the **existing icCube Donut chart widget**. This widget is demonstrating how to reuse an
 existing amCharts 4 widget (i.e., the Donut chart).
+
+**Transformations**
+
+It also creates two **transformations** :
+
+`TransformationCustom` defines a transformation that modifies the tidy table values. It is appending some text to
+each value of a column.
+
+`TransfRendererCustom` defines a cell renderer to be used in the Table - and PivoTable widgets.
 
 ### Getting Started
 

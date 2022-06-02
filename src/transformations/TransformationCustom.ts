@@ -21,6 +21,10 @@ export const TransformationCustom: ITidyTableTransformation<TransformationCustom
 
     getFieldMeta(): FormFields<TransformationCustomOptions> {
         return {
+            /**
+             * Single column
+             * @see TransfRendererCustom for multiple columns
+             */
             column: {
                 fieldType: "columnsChooser",
                 mandatory: true
@@ -40,11 +44,9 @@ export const TransformationCustom: ITidyTableTransformation<TransformationCustom
 
     apply(context: IPublicContext, table, options: TransformationCustomOptions): void {
 
-        const column = table.getColumnsBySelector(options.column)?.[0];
-
-        if (column != null) {
+        table.getColumnsBySelector(options.column).forEach(column => {
             column.apply(value => String(value) + options.appendText, TidyColumnsType.CHARACTER);
-        }
+        })
 
     }
 }

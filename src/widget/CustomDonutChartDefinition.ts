@@ -23,11 +23,7 @@ export const CustomDonutChartDefinition = ApiUtils.makeAmCharts4WrappedWidgetTem
          * @see PluginLocalization.csv
          */
         id: "CustomDonutChart",
-
-        /**
-         * @see PluginLocalization.csv
-         */
-        groupId: "myCharts",
+        groupId: "myChartsJS",
 
     },
 

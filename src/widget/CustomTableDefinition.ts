@@ -28,9 +28,6 @@ function hookChartOptionsMeta(optionsMeta: FormFields<TableChartOptions> | undef
         optionsMeta.variant.visibility = false;
         optionsMeta.tableSize.visibility = false;
 
-        optionsMeta.cellValue.visibility = false;
-        optionsMeta.useMdxSecondAxisAsTableColumn.visibility = false;
-
         optionsMeta.columnSizing.visibility = false;
         optionsMeta.columnSizes_FIXED.visibility = false;
         optionsMeta.columnSizes_FLUID.visibility = false;
@@ -119,12 +116,11 @@ export const CustomTableDefinition: IWrappedWidgetTemplateDefinition<"ic3.Table"
 
             ...wrapped,
 
-            id: "CustomTable",
-
             /**
              * @see PluginLocalization.csv
              */
-            groupId: "myCharts",
+            id: "CustomTable",
+            groupId: "myChartsJS",
 
             chartOptionsMeta: hookChartOptionsMeta(wrapped.chartOptionsMeta),
             hookChartOptions: hookChartOptions,

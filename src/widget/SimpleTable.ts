@@ -12,42 +12,53 @@ import {SimpleTableOptions} from "./SimpleTableDefinition";
 import "datatables.net";
 import "./css/SimpleTable.css"
 
-
 class SimpleTable {
+
+    private readonly context: IWidgetPublicContext;
 
     private readonly container: HTMLDivElement;
 
-    private table?: ITidyTable;
+    private tidyTable?: ITidyTable;
+
+    private tidyInter?: ITidyTableInteraction;
 
     private options?: SimpleTableOptions;
 
-    private $table?: any; // DataTables.Api;
+    /**
+     * DataTables.Api
+     */
+    private $table?: any;
 
     constructor(context: IWidgetPublicContext, container: HTMLDivElement) {
+        this.context = context;
         this.container = container;
     }
 
     renderJS(data: IWidgetTemplateTidyData, options: SimpleTableOptions, header: string) {
 
         const optionUpdated = !_.isEqual(this.options, options);
-        const dataUpdated = !_.isEqual(this.table, data.table);
+        const tableUpdated = !_.isEqual(this.tidyTable, data.table);
+        const interUpdated = !_.isEqual(this.tidyInter, data.inter);
 
         this.options = options;
-        this.table = data.table;
+        this.tidyTable = data.table;
+        this.tidyInter = data.inter;
 
-        if (optionUpdated || dataUpdated) {
+        console.log("### SimpleTable.render(" + this.context.getWidgetId() + ")", optionUpdated, tableUpdated, interUpdated)
+
+        if (optionUpdated || tableUpdated) {
 
             this.dispose();
 
             // We're simply displaying the underlying tidy table wo/ much enhancement.
 
-            const columns = this.table.getColumns();
+            const columns = this.tidyTable.getColumns();
 
             const gridColumns = columns.map((column, idx) => {
                 return {title: column.getCaption()};
             });
 
-            const gridRows = this.table.mapRows((rowIdx, rowData, rowSize) => {
+            const gridRows = this.tidyTable.mapRows((rowIdx, rowData, rowSize) => {
 
                 const row = [];
 
@@ -81,29 +92,27 @@ class SimpleTable {
 
             });
 
-            // The column used for defining the content of the event (SimpleTableClickRow).
-            // In the query, the first axis after the measures.
-            const clickRowColumn = this.table.getColumnByMdxAxis({axisIdx: 1, hierIdx: 0});
+            const self = this;
 
             // https://datatables.net/examples/advanced_init/events_live.html
             $("#" + table.id + " tbody").on("click", "tr", function (e) {
 
                 const row = $table.row(this);
-                const index = row.index();
+                const rowIdx = row.index();
 
-                // Note this is safe to call if selection is disabled (end-user configuration of the widget).
-                data.inter.handleRowHit(index, e.originalEvent);
+                console.log("### SimpleTable.click(" + self.context.getWidgetId() + ")", rowIdx)
 
-                clickRowColumn && data.inter.fireEvent("SimpleTableClickRow", clickRowColumn, index);
+                if (self.tidyInter?.getInteractionMode() === "selection") {
+                    self.tidyInter.handleClickSelection(rowIdx, e.originalEvent);
+                }
+
+                const rowColumn = self.tidyTable?.getColumnByAlias("rows");
+                rowColumn && data.inter.fireEvent("SimpleTableClickRow", rowColumn, rowIdx);
             });
 
-            this.renderSelection(data.inter);
-
-        } else {
-
-            this.renderSelection(data.inter);
-
         }
+
+        this.renderSelection(data.inter);
 
     }
 

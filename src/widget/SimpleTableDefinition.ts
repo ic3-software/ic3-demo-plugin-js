@@ -3,6 +3,7 @@ import {
     FormFieldObject,
     FormFields,
     IPublicWidgetJsTemplateDefinition,
+    ITidyTable,
     TemplateEventActionNames,
     WidgetTemplateDefinitionType
 } from "@ic3/reporting-api";
@@ -33,11 +34,7 @@ export const SimpleTableDefinition = ApiUtils.createLazyJsWidgetTemplateDefiniti
      * @see PluginLocalization.csv
      */
     id: "SimpleTable",
-
-    /**
-     * @see PluginLocalization.csv
-     */
-    groupId: "myCharts",
+    groupId: "myChartsJS",
 
     image: "",
 
@@ -49,21 +46,18 @@ export const SimpleTableDefinition = ApiUtils.createLazyJsWidgetTemplateDefiniti
     mdxBuilderSettings: {
         mdxAxis: [
             {
-                name: "Measures",
-                isOptional: true,
-                disableNonEmpty: true,
-                showOrder: 3,
-            },
-            {
                 name: "Columns",
                 multipleHierarchy: true,
-                showOrder: 1,
             },
             {
                 name: "Rows",
                 multipleHierarchy: true,
-                showOrder: 2,
-            }
+            },
+            {
+                name: "#Measures" /* sort of paging */,
+                isOptional: true,
+                disableNonEmpty: true,
+            },
         ]
     },
 
@@ -84,13 +78,32 @@ export const SimpleTableDefinition = ApiUtils.createLazyJsWidgetTemplateDefiniti
         selectionSubscribe: TemplateEventActionNames.SELECTION,
     },
 
+    defaultMapping: data => {
+        const table = data.table;
+
+        const axis = table.getColumnsByMdxAxis(1);
+
+        if (!axis || axis.length === 0) {
+            return {rows: [table.getColumns()[0]]}
+        }
+
+        return {rows: axis};
+
+    },
+
     selection: {
 
-        /**
-         * All "axis" columns can be part of the selection (see Interactions/Selection/Selection Granularity)
-         * in the table widget editor.
-         */
-        allowedColumns: column => column.getAxisCoordinate() == null || column.getAxisCoordinate()?.axisIdx !== 0
+        defaultGranularityItems: [{
+            type: "role",
+            role: "Rows"
+        }],
+
+        granularityItems: (table: ITidyTable) => {
+            return [{
+                type: 'role',
+                role: "Rows"
+            }];
+        },
 
     },
 

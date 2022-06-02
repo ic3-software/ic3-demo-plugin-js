@@ -14,6 +14,7 @@ import {SimpleDropdownDefinition} from "./widget/SimpleDropdownDefinition";
 import {SimpleTableDefinition} from "./widget/SimpleTableDefinition";
 import {TransformationCustom} from "./transformations/TransformationCustom";
 import {CustomDonutChartDefinition} from "./widget/CustomDonutChartDefinition";
+import {TransfRendererCustom} from "./transformations/TransfRendererCustom";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -53,6 +54,7 @@ const PluginDefinition = ApiUtils.makePlugin({
     registerTidyTableTransformations(manager: ITidyTableTransformationManager) {
 
         manager.registerTransformation(TransformationCustom);
+        manager.registerTransformation(TransfRendererCustom);
 
     },
 
@@ -63,6 +65,7 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         return id.startsWith("MyPluginJS")
             || (widget.type === WidgetTemplateDefinitionType.Filter && id.startsWith("ic3"))
+            || (id.startsWith("ic3") || id.includes("Table"))
             ;
 
     }
