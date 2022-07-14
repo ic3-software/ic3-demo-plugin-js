@@ -29,6 +29,10 @@ export default {
 
         const wrapped = options.postRenderHook;
 
+        options.labelText = "$value.caption$ <br> $value.total$";
+        options.labelTextAlign = 'middle';
+        options.donutRadius = 70;  /* rendered as a Donut chart. Set to 0 for a Pie Chart. */
+
         options.postRenderHook = {
 
             /**
@@ -46,8 +50,7 @@ export default {
                 wrapped && wrapped.hook(value) /* e.g., wrapped chart is using a variant w/ hook */;
 
                 const chart: PieChart = value.getChart();
-
-                chart.innerRadius = 0 /* rendered as a Pie chart... */;
+                chart.radius = 80;  /* Outer radius of the chart */
 
             }
         }

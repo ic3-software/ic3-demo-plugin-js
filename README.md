@@ -23,6 +23,11 @@ Create a new table widget **from scratch**. On top of common widget setup, this 
 the [selection](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Interactions.md). It also creates
 a **transformation** that is appending some text to each value of a column.
 
+**amCharts 4 Chart**
+
+Create a new (rolling time series) chart **from scratch** using the amCharts 4 library. Demonstrate as well
+how to **lazy-load** (that is when required) a Javascript library.
+
 **Custom Table**
 
 Create a new table widget from the **existing icCube table widget**. This widget is demonstrating how to reuse existing
@@ -35,12 +40,15 @@ existing amCharts 4 widget (i.e., the Donut chart).
 
 **Transformations**
 
-It also creates two **transformations** :
+It also creates several **transformations** :
 
 `TransformationCustom` defines a transformation that modifies the tidy table values. It is appending some text to
 each value of a column.
 
 `TransfRendererCustom` defines a cell renderer to be used in the Table - and PivoTable widgets.
+
+`Add Rolling Average` defines a transformation that adds a column with the rolling average using an user defined
+window.
 
 ### Getting Started
 

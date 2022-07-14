@@ -29,6 +29,9 @@ MyPluginJS.CustomTable.$caption.description, A custom flat table...
 MyPluginJS.CustomDonutChart.$caption, Custom Donut
 MyPluginJS.CustomDonutChart.$caption.description, A custom donut chart...
 
+MyPluginJS.PredictiveTimeSeries.$caption, Rolling Time Series
+MyPluginJS.PredictiveTimeSeries.$caption.description, Show rolling averages of a timeseries
+
 # -----------------------------------------------------------------------------
 # A common field can be defined as:
 #
@@ -64,6 +67,20 @@ MyPluginJS.SimpleTable.#Measures.dropZone, Additional Measures, Mesures Supplém
 MyPluginJS.CustomTable.width, Width
 MyPluginJS.CustomTable.width.description, Controls the width of the columns.
 
+MyPluginJS.PredictiveTimeSeries.value, Value
+MyPluginJS.PredictiveTimeSeries.value.description, Value for the dot-series
+MyPluginJS.PredictiveTimeSeries.value.dropZone, Drag a measure here
+
+MyPluginJS.PredictiveTimeSeries.rolling1, Rolling Series I
+MyPluginJS.PredictiveTimeSeries.rolling1.description, Add a rolling average series by setting a column here (check the Rolling Average transformation).
+
+MyPluginJS.PredictiveTimeSeries.rolling2, Rolling Series II
+MyPluginJS.PredictiveTimeSeries.rolling2.description, Add a rolling average series by setting a column here (check the Rolling Average transformation).
+
+MyPluginJS.PredictiveTimeSeries.xAxis, X-Axis
+MyPluginJS.PredictiveTimeSeries.xAxis.description, The label for the x-axis of the chart.
+MyPluginJS.PredictiveTimeSeries.xAxis.dropZone, Drag a level/hierarchy here
+
 # -----------------------------------------------------------------------------
 # Transformations options, name & description
 # -----------------------------------------------------------------------------
@@ -80,6 +97,18 @@ MyPluginJS.TransformationCustom.appendText, Append text
 MyPluginJS.TransformationCustom.appendText.description, Append this text to the column in 'Column'
 
 MyPluginJS.TransfRendererCustom.columns, Columns
+
+MyPluginJS.$transformation.MyPluginJS, MyPluginJS Transformations
+MyPluginJS.$transformation.MyPluginJS.description, Transformations from the MyPluginJS plugin
+
+MyPluginJS.TransformationMakePrediction.$caption, Add Rolling Average
+MyPluginJS.TransformationMakePrediction.$caption.description, Add a column with the rolling average using an user defined window.
+MyPluginJS.TransformationMakePrediction.$caption.description.ex, "Add a {0}-rolling average using '{1}'".
+MyPluginJS.TransformationMakePrediction.valueColumn, Value Column
+MyPluginJS.TransformationMakePrediction.valueColumn.description, Map here the column to calculate the rolling average for.
+MyPluginJS.TransformationMakePrediction.windowLength, Window Length
+MyPluginJS.TransformationMakePrediction.newName, New Column Name
+MyPluginJS.TransformationMakePrediction.newName.description, The name of the rolling average column.
 
 # -----------------------------------------------------------------------------
 # Enum

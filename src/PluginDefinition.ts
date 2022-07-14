@@ -15,6 +15,8 @@ import {SimpleTableDefinition} from "./widget/SimpleTableDefinition";
 import {TransformationCustom} from "./transformations/TransformationCustom";
 import {CustomDonutChartDefinition} from "./widget/CustomDonutChartDefinition";
 import {TransfRendererCustom} from "./transformations/TransfRendererCustom";
+import { TransformationRollingMeans } from "./transformations/TransformationRollingMeans";
+import Amcharts4PredictiveTimeSeriesDefinition from "./widget/AmCharts4PredictiveTimeSeriesDefinition";
 
 /**
  * The plugin definition exposed as a remote Webpack module to the icCube dashboards application.
@@ -45,6 +47,7 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         manager.registerWidget(SimpleDropdownDefinition);
         manager.registerWidget(SimpleTableDefinition);
+        manager.registerWidget(Amcharts4PredictiveTimeSeriesDefinition);
 
         manager.registerWrappedWidget(CustomTableDefinition);
         manager.registerWrappedWidget(CustomDonutChartDefinition);
@@ -55,6 +58,7 @@ const PluginDefinition = ApiUtils.makePlugin({
 
         manager.registerTransformation(TransformationCustom);
         manager.registerTransformation(TransfRendererCustom);
+        manager.registerTransformation(TransformationRollingMeans);
 
     },
 
