@@ -2,6 +2,7 @@ import {
     ChartTemplateDataMapping,
     FormFieldObject,
     FormFields,
+    ILogger,
     IPublicJsChartTemplate,
     IPublicWidgetTemplateDefinition,
     ITemplateEventActionDef,
@@ -88,7 +89,7 @@ export interface AmCharts4WidgetTemplateDefinitionJS<OPTIONS extends FormFieldOb
 
     jsCode: (context: IWidgetPublicContext, container: HTMLDivElement) => IPublicJsChartTemplate<OPTIONS>;
 
-    registerAmCharts4: (callback: (am4core: unknown) => void) => void;
+    registerAmCharts4: (logger: ILogger, callback: (am4core: unknown) => void) => void;
 
     defaultMapping?: (data: IWidgetTemplateTidyOptions<OPTIONS>) => ChartTemplateDataMapping;
 }

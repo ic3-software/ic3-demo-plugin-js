@@ -1,4 +1,10 @@
-import {ITidyTable, ITidyTableInteraction, IWidgetPublicContext, IWidgetTemplateTidyData, WidgetRenderLayoutStatus} from "@ic3/reporting-api";
+import {
+    ITidyTable,
+    ITidyTableInteraction,
+    IWidgetPublicContext,
+    IWidgetTemplateTidyData,
+    WidgetRenderLayoutStatus
+} from "@ic3/reporting-api";
 import AmCharts4Base from "./AmCharts4Base";
 import _ from "lodash";
 
@@ -34,7 +40,14 @@ export class AmCharts4ChartJS<T> {
         if (this.base == null) {
             this.base = this.createBase(this.context, this.container, data.table, data.inter, options);
             this.base.chart.events.on("ready", () => {
-                this.context.logInfoWidget("AmCharts4Base", "*** ready ***");
+
+                const nsId = this.context.getNsId();
+                const widgetId = this.context.getWidgetId();
+
+                const logger = this.context.logger();
+
+                logger.infoWidget("AmCharts4", nsId, widgetId, "*** ready ***")
+
                 this.context.onWidgetRenderStatusChange(WidgetRenderLayoutStatus.RENDERED);
             });
         }

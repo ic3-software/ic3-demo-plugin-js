@@ -3,6 +3,7 @@ import {
     ApiUtils,
     FormFieldObject,
     ILocalizationManager,
+    ILogger,
     IPublicWidgetTemplateDefinition,
     ITidyTableTransformationManager,
     IWidgetManager,
@@ -15,7 +16,7 @@ import {SimpleTableDefinition} from "./widget/SimpleTableDefinition";
 import {TransformationCustom} from "./transformations/TransformationCustom";
 import {CustomDonutChartDefinition} from "./widget/CustomDonutChartDefinition";
 import {TransfRendererCustom} from "./transformations/TransfRendererCustom";
-import { TransformationRollingMeans } from "./transformations/TransformationRollingMeans";
+import {TransformationRollingMeans} from "./transformations/TransformationRollingMeans";
 import Amcharts4PredictiveTimeSeriesDefinition from "./widget/AmCharts4PredictiveTimeSeriesDefinition";
 
 /**
@@ -33,17 +34,17 @@ const PluginDefinition = ApiUtils.makePlugin({
      */
     id: "MyPluginJS",
 
-    registerLocalization(manager: ILocalizationManager) {
+    registerLocalization(logger: ILogger, manager: ILocalizationManager) {
 
-        console.log("[MyPluginJS] registerLocalization")
+        logger.info("Demo", "[MyPluginJS] registerLocalization")
 
         manager.registerLocalization(PluginLocalization);
 
     },
 
-    registerWidgets(manager: IWidgetManager) {
+    registerWidgets(logger: ILogger, manager: IWidgetManager) {
 
-        console.log("[MyPluginJS] registerWidgets")
+        logger.info("Demo", "[MyPluginJS] registerWidgets")
 
         manager.registerWidget(SimpleDropdownDefinition);
         manager.registerWidget(SimpleTableDefinition);
@@ -54,7 +55,7 @@ const PluginDefinition = ApiUtils.makePlugin({
 
     },
 
-    registerTidyTableTransformations(manager: ITidyTableTransformationManager) {
+    registerTidyTableTransformations(logger: ILogger, manager: ITidyTableTransformationManager) {
 
         manager.registerTransformation(TransformationCustom);
         manager.registerTransformation(TransfRendererCustom);

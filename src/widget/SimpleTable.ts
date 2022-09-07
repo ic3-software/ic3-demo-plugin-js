@@ -5,7 +5,7 @@ import {
     ITidyTable,
     ITidyTableInteraction,
     IWidgetPublicContext,
-    IWidgetTemplateTidyData
+    IWidgetTemplateTidyData,
 } from "@ic3/reporting-api";
 import {SimpleTableOptions} from "./SimpleTableDefinition";
 
@@ -44,7 +44,13 @@ class SimpleTable {
         this.tidyTable = data.table;
         this.tidyInter = data.inter;
 
-        console.log("### SimpleTable.render(" + this.context.getWidgetId() + ")", optionUpdated, tableUpdated, interUpdated)
+        const logger = this.context.logger();
+
+        logger.info("Demo", "[MyPluginJS] SimpleTable.render(" + this.context.getWidgetId() + ")", {
+            optionUpdated,
+            tableUpdated,
+            interUpdated
+        })
 
         if (optionUpdated || tableUpdated) {
 
@@ -100,7 +106,7 @@ class SimpleTable {
                 const row = $table.row(this);
                 const rowIdx = row.index();
 
-                console.log("### SimpleTable.click(" + self.context.getWidgetId() + ")", rowIdx)
+                logger.info("Demo", "[MyPluginJS]] SimpleTable.click(" + self.context.getWidgetId() + ")", rowIdx)
 
                 if (self.tidyInter?.getInteractionMode() === "selection") {
                     self.tidyInter.handleClickSelection(rowIdx, e.originalEvent);
