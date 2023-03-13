@@ -5,10 +5,6 @@ const ModuleFederationPlugin = require("webpack").container.ModuleFederationPlug
 
 const deps = require("./package.json").dependencies;
 
-if (deps["@ic3/reporting-api"] && deps["@ic3/reporting-api"].indexOf("file:") === 0) {
-    delete deps["@ic3/reporting-api"];
-}
-
 module.exports = {
 
     entry: "./src/index.ts",

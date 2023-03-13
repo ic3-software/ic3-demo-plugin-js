@@ -48,7 +48,6 @@ function hookChartOptionsMeta(optionsMeta: FormFields<TableChartOptions> | undef
         optionsMeta.footerPagination.visibility = false;
 
         optionsMeta.footerRowCount.visibility = false;
-        optionsMeta.footerSelectedRowCount.visibility = false;
 
         optionsMeta.pageSize.visibility = false;
 
