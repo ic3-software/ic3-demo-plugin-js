@@ -110,6 +110,10 @@ MyPluginJS.TransformationMakePrediction.windowLength, Window Length
 MyPluginJS.TransformationMakePrediction.newName, New Column Name
 MyPluginJS.TransformationMakePrediction.newName.description, The name of the rolling average column.
 
+MyPluginJS.TransformationFireEvent.$caption, Fire Custom Event Example
+MyPluginJS.TransformationFireEvent.$caption.description, This transformation fires the `selCountry` event if the first cell equals 42. Else it clears the event.
+MyPluginJS.TransformationFireEvent.$caption.description.ex, "Fire `selCountry` if the first cell equals 42".
+
 # -----------------------------------------------------------------------------
 # Enum
 # -----------------------------------------------------------------------------
