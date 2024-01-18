@@ -45,9 +45,9 @@ export default {
              *          whose name is available in the chart options documentation.
              * </pre>
              */
-            hook: (value: any) => {
+            hook: (value: any, options: any) => {
 
-                wrapped && wrapped.hook(value) /* e.g., wrapped chart is using a variant w/ hook */;
+                wrapped && wrapped.hook(value, options) /* e.g., wrapped chart is using a variant w/ hook */;
 
                 const chart: PieChart = value.getChart();
                 chart.radius = 80;  /* Outer radius of the chart */
