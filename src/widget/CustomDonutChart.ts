@@ -13,7 +13,7 @@ export default {
         if (optionsMeta) {
 
             Object.keys(optionsMeta).forEach(k => {
-                optionsMeta[k].visibility = false;
+                (optionsMeta as any)[k].visibility = false;
             })
 
             return optionsMeta;

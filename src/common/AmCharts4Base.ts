@@ -68,8 +68,8 @@ export default abstract class AmCharts4Base<T> {
     public getRowFromDataItem(dataItem: unknown, rowKey: string): number | undefined {
         if (dataItem instanceof am4core.DataItem) {
             const dataContext = dataItem.dataContext;
-            return (dataContext instanceof am4charts.TreeMapDataItem) ? dataContext.dataContext[rowKey] :
-                (dataContext != null) ? dataContext[rowKey] :
+            return (dataContext instanceof am4charts.TreeMapDataItem) ? (dataContext.dataContext as any)[rowKey] :
+                (dataContext != null) ? (dataContext as any)[rowKey] :
                     undefined;
         }
         return undefined;
