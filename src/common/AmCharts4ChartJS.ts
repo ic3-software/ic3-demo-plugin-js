@@ -41,14 +41,14 @@ export class AmCharts4ChartJS<T> {
             this.base = this.createBase(this.context, this.container, data.table, data.inter, options);
             this.base.chart.events.on("ready", () => {
 
-                const nsId = this.context.getNsId();
-                const widgetId = this.context.getWidgetId();
+                const nsId = this.context.getStableContext().getNsId();
+                const widgetId = this.context.getStableContext().getWidgetId();
 
                 const logger = this.context.logger();
 
                 logger.infoWidget("AmCharts4", nsId, widgetId, "*** ready ***")
 
-                this.context.onWidgetRenderStatusChange(WidgetRenderLayoutStatus.RENDERED);
+                this.context.getStableContext().onWidgetRenderStatusChange(WidgetRenderLayoutStatus.RENDERED);
             });
         }
 

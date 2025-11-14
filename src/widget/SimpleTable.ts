@@ -46,7 +46,7 @@ class SimpleTable {
 
         const logger = this.context.logger();
 
-        logger.info("Demo", "[MyPluginJS] SimpleTable.render(" + this.context.getWidgetId() + ")", {
+        logger.info("Demo", "[MyPluginJS] SimpleTable.render(" + this.context.getStableContext().getWidgetId() + ")", {
             optionUpdated,
             tableUpdated,
             interUpdated
@@ -106,7 +106,7 @@ class SimpleTable {
                 const row = $table.row(this);
                 const rowIdx = row.index();
 
-                logger.info("Demo", "[MyPluginJS]] SimpleTable.click(" + self.context.getWidgetId() + ")", rowIdx)
+                logger.info("Demo", "[MyPluginJS]] SimpleTable.click(" + self.context.getStableContext().getWidgetId() + ")", rowIdx)
 
                 if (self.tidyInter?.getInteractionMode() === "selection") {
                     self.tidyInter.handleClickSelection(rowIdx, e.originalEvent);
