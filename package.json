@@ -1,12 +1,12 @@
 {
   "name": "@ic3/demo-plugin-js",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "icCube dashboards plugin: Javascript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "9.0.0",
+    "@ic3/reporting-api": "9.0.1",
     "datatables.net": "2.3.2",
     "jquery": "3.7.1",
     "lodash": "4.17.21"
