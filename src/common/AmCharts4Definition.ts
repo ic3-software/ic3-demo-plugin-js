@@ -2,7 +2,6 @@ import {
     ChartTemplateDataMapping,
     FormFieldObject,
     FormFields,
-    ILogger,
     IPublicJsChartTemplate,
     IPublicWidgetTemplateDefinition,
     ITemplateEventActionDef,
@@ -11,7 +10,7 @@ import {
     IWidgetTemplateTidyOptions,
     IWidgetVariantManager
 } from "@ic3/reporting-api";
-
+import {ILogger} from "@ic3/common-api";
 /**
  * An helper method used while dynamically importing the widget implementation to create
  * the resolved widget template definition that is going to be used for rendering/editing
@@ -69,7 +68,7 @@ export function createAmCharts4WidgetTemplateDefinition<OPTIONS extends FormFiel
         withDrilldownPivotTableLikeAs: false,
 
         // -------------------------------------------------------------------------------------------------------------
-        // [March 11, 2022] This cast seems to fix that Typescript issue:
+        // [March 11, 2022] This cast seems to fix that TypeScript issue:
         //
         //          Expression produces a union type that is too complex to represent.
         // -------------------------------------------------------------------------------------------------------------

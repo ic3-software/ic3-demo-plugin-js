@@ -1,4 +1,5 @@
-import {FormFieldObject, ILogger} from "@ic3/reporting-api";
+import {FormFieldObject} from "@ic3/reporting-api";
+import {ILogger} from "@ic3/common-api"
 import * as am4core from "@amcharts/amcharts4/core";
 import {AmCharts4WidgetTemplateDefinitionJS} from "./AmCharts4Definition";
 

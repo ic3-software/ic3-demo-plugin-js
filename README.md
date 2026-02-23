@@ -1,6 +1,6 @@
-## icCube Dashboards Plugin (Javascript/Typescript)
+## icCube Dashboards Plugin (JavaScript/TypeScript)
 
-A working example of an icCube Dashboards plugin creating new widgets using plain Javascript/Typescript code
+A working example of an icCube Dashboards plugin creating new widgets using plain JavaScript/TypeScript code
 (i.e., no dependency on React).
 
 Note that this plugin is demonstrating how to **filter the list of available widgets**. Check the `acceptWidget`
@@ -12,7 +12,7 @@ This plugin is creating the following widgets:
 **Simple Dropdown**
 
 Create a new filter widget **from scratch**. This widget is demonstrating how to **lazy load** (Webpack code splitting)
-the underlying Javascript library (datatables.net). Users can select an item from a dropdown list. On top of common
+the underlying JavaScript library (datatables.net). Users can select an item from a dropdown list. On top of common
 widget setup, this widget is demonstrating how
 to [fire an event](https://github.com/ic3-software/ic3-reporting-api/blob/main/doc/plugin/Events.md).
 
@@ -26,7 +26,7 @@ a **transformation** that is appending some text to each value of a column.
 **amCharts 4 Chart**
 
 Create a new (rolling time series) chart **from scratch** using the amCharts 4 library. Demonstrate as well
-how to **lazy-load** (that is when required) a Javascript library.
+how to **lazy-load** (that is when required) a JavaScript library.
 
 **Custom Table**
 
@@ -52,7 +52,7 @@ window.
 
 ### Getting Started
 
-Clone that Git repository that is proposing a common Javascript/Typescript project using Webpack.
+Clone that Git repository that is proposing a common JavaScript/TypeScript project using Webpack.
 
 Use `npm` to install the dependencies:
 

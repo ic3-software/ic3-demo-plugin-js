@@ -1,9 +1,9 @@
 import PluginLocalization from "./PluginLocalization.csv";
+import {ILogger} from "@ic3/common-api";
 import {
     ApiUtils,
     FormFieldObject,
     ILocalizationManager,
-    ILogger,
     IPublicWidgetTemplateDefinition,
     ITidyTableTransformationManager,
     IWidgetManager,
