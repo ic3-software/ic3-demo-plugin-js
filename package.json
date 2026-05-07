@@ -1,17 +1,18 @@
 {
   "name": "@ic3/demo-plugin-js",
-  "version": "9.1.1",
+  "version": "9.2.0",
+  "license": "MIT",
   "description": "icCube dashboards plugin: JavaScript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "9.1.1",
+    "@ic3/reporting-api": "9.2.0",
     "react": "18.x",
     "react-dom": "18.x",
     "datatables.net": "2.3.5",
     "jquery": "3.7.1",
-    "lodash": "4.17.23"
+    "lodash": "4.18.1"
   },
   "devDependencies": {
     "@ic3/common-api" : "1.0.2",
@@ -39,9 +40,9 @@
     "style-loader": "4.0.0",
     "ts-loader": "9.5.4",
     "typescript": "5.8.3",
-    "webpack": "5.105.2",
-    "webpack-cli": "6.0.1",
-    "webpack-dev-server": "5.2.2",
+    "webpack": "5.105.4",
+    "webpack-cli": "7.0.2",
+    "webpack-dev-server": "5.2.3",
     "webpack-merge": "6.0.1"
   },
   "scripts": {
