@@ -1,13 +1,13 @@
 {
   "name": "@ic3/demo-plugin-js",
-  "version": "9.4.1",
+  "version": "9.4.2",
   "license": "MIT",
   "description": "icCube dashboards plugin: JavaScript",
   "homepage": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "repository": "https://github.com/ic3-software/ic3-demo-plugin-js",
   "private": true,
   "dependencies": {
-    "@ic3/reporting-api": "9.4.1",
+    "@ic3/reporting-api": "9.4.2",
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "datatables.net": "2.3.5",
